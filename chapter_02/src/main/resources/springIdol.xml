@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	
+	<!-- Simple bean with default constructor -->
+	<bean id="duke" class="com.spring.performer.impl.Juggler"/>
+	<!-- Simple bean with constructor -->
+	<bean id="dukeWithConstructor" class="com.spring.performer.impl.Juggler">
+		<constructor-arg value="15"/>
+	</bean>
+  
+  	<!-- Simple bean - inject object ref with constructor -->
+  	<bean id="sonnet29" class="com.spring.poem.impl.Sonnet29"/>
+  	<bean id="dukeInjectObjectIntoConstructor" class="com.spring.performer.impl.PoeticJuggler">
+  		<constructor-arg value="15"/>
+  		<constructor-arg ref="sonnet29"/>
+  	</bean>
+  	
+  	<!-- Creating simple bean throw factory method -->
+  	<bean id="stage" class="com.spring.stage.impl.Stage" factory-method="getInstance"/>
+  	
+  	<!-- Creating simple bean with prototype scope -->
+  	<bean id="ticket" class="com.spring.ticket.impl.Ticket" scope="prototype"/>
+  	
+  	<!-- Initializing and destroying beans -->
+  	<bean id="auditorium" class="com.spring.auditorium.impl.Auditorium" init-method="turnOnLights" destroy-method="turnOffLights"/>
+  	
+  	<!-- Simple bean - inject value into bean properties -->
+  	<bean id="saxophone" class="com.spring.instrument.impl.Saxophone"/>
+  	<bean id="kenny" class="com.spring.performer.impl.Instrumentalist">
+  		<property name="song" value="Jingle Bells"/>
+  		<property name="instrument" ref="saxophone"/>
+  	</bean>
+  	
+  	
+  	
+</beans>
