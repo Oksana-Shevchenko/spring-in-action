@@ -30,4 +30,8 @@ public class Instrumentalist implements IPerformer {
 	public void setInstrument(IInstrument instrument) {
 		this.instrument = instrument;
 	}
+	
+	public IInstrument getInstrument() {
+		return instrument;
+	}
 }

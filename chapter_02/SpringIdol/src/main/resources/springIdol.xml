@@ -38,7 +38,72 @@
   		<property name="song" value="Jingle Bells"/>
   		<property name="instrument" ref="saxophone"/>
   	</bean>
+
+  	<!-- Simple bean - inject inner beans -->
+  	<bean id="kennyInnerBean" class="com.spring.performer.impl.Instrumentalist">
+  		<property name="song" value="Jingle Bells"/>
+  		<property name="instrument">
+  			<bean class="com.spring.instrument.impl.Saxophone"/>
+  		</property>
+  	</bean>
   	
+  	<!-- Simple bean - use p namespace -->
+  	<bean id="kennyWithPNamespace" class="com.spring.performer.impl.Instrumentalist"
+  		p:song ="Jingle Bells"
+  		p:instrument-ref = "saxophone"/>
+  		
+  	<!-- Collections - list -->
+  	<bean id="guitar" class="com.spring.instrument.impl.Guitar"/>
+  	<bean id="cymbal" class="com.spring.instrument.impl.Cymbal"/>
+  	<bean id="harmonica" class="com.spring.instrument.impl.Harmonica"/>
+  	<bean id="hankList" class="com.spring.performer.impl.OneManBand">
+	  	<property name="instruments">
+		  	<list>
+			  	<ref bean="guitar"/>
+			  	<ref bean = "cymbal"/>
+			  	<ref bean="harmonica"/>
+		  	</list>
+	  	</property>
+  	</bean>
   	
+  	<!-- Collections - set -->
+  	<bean id="hankSet" class="com.spring.performer.impl.OneManBand">
+	  	<property name="instruments">
+		  	<set>
+			  	<ref bean="guitar"/>
+			  	<ref bean = "cymbal"/>
+			  	<ref bean="harmonica"/>
+			  	<ref bean="harmonica"/>
+		  	</set>
+	  	</property>
+  	</bean>
   	
+  	<!-- Collections - map -->
+  	<bean id="hankMap" class="com.spring.performer.impl.OneManBandMaps">
+	  	<property name="instruments">
+		  	<map>
+			  	<entry key="GUITAR" value-ref="guitar"/>
+			  	<entry key="CYMBAL" value-ref="cymbal"/>
+			  	<entry key="HARMONICA" value-ref = "harmonica"/>
+		  	</map>
+	  	</property>
+  	</bean>
+  	
+  	<!-- Collections - Properties -->
+  	<bean id="hankProperties" class="com.spring.performer.impl.OneManBandProperties">
+	  	<property name="instruments">
+		  	<props>
+			  	<prop key="GUITAR">guitar</prop>
+			  	<prop key="CYMBAL">cymbal</prop>
+			  	<prop key="HARMONICA">harmonica</prop>
+		  	</props>
+	  	</property>
+  	</bean>
+  	
+ 	<!-- SpEl - reference properties -->
+  	<bean id="carl" class="com.spring.performer.impl.Instrumentalist">
+  		<property name="song" value="#{kenny.song}"/>
+  		<property name="instrument" value="#{kenny.instrument}"/>
+  	</bean>
+
 </beans>
