@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.spring.performer.IPerformer;
+import com.spring.performer.impl.InstrumentalistNonSpringComponent;
 
 public class Runner {
 	public static void main(String[] args) {
@@ -28,5 +29,14 @@ public class Runner {
 		//Replace method
 		IPerformer performerReplaceMethod = (IPerformer)context.getBean("harry");
 		performerReplaceMethod.perform();
+		
+		//Replace method (Lookup method)
+		IPerformer performerLookupMethod = (IPerformer)context.getBean("stevieWithLookupMethod");
+		performerLookupMethod.perform();
+
+		//Run with -javaagent:C:\Users\Orange\.m2\repository\org\aspectj\aspectjweaver\1.6.1\aspectjweaver-1.6.1.jar
+		/*IPerformer instrumentalistNonSpringComponent = new InstrumentalistNonSpringComponent();
+		instrumentalistNonSpringComponent.perform();
+		*/
 	}
 }

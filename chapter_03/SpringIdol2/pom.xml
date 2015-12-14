@@ -9,62 +9,66 @@
 	<jdk.version>1.6</jdk.version>
   </properties>
   <dependencies>
-  	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-core</artifactId>
-		<version>3.0.0.RELEASE</version>
-	</dependency>
-	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-beans</artifactId>
-		<version>3.0.0.RELEASE</version>
-	</dependency>
-	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-aop</artifactId>
-		<version>3.0.0.RELEASE</version>
-	</dependency>
-	<dependency>
-        <groupId>org.aspectj</groupId>
-        <artifactId>aspectjweaver</artifactId>
-        <version>1.6.1</version>
-	</dependency>
-	<dependency>
-  		<groupId>org.springframework</groupId>
-		<artifactId>spring-context-support</artifactId>
-		<version>3.0.0.RELEASE</version>
-  	</dependency>
-  	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-expression</artifactId>
-		<version>3.0.0.RELEASE</version>
-	</dependency>
-	<dependency>
-	<groupId>org.springframework</groupId>
-	<artifactId>spring-orm</artifactId>
-	<version>3.0.0.RELEASE</version>
-</dependency>
-<dependency>
+	  	<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>3.0.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>3.0.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>3.0.0.RELEASE</version>
+		</dependency>
+		<dependency>
+		     <groupId>org.springframework</groupId>
+		     <artifactId>spring-aspects</artifactId>
+		     <version>3.0.0.RELEASE</version>
+		</dependency>
+		<dependency>
+	        <groupId>org.aspectj</groupId>
+	        <artifactId>aspectjweaver</artifactId>
+	        <version>1.6.1</version>
+		</dependency>
+		<dependency>
+	  		<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>3.0.0.RELEASE</version>
+	  	</dependency>
+	  	<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>3.0.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>cglib</groupId>
+	        <artifactId>cglib</artifactId>
+	        <version>3.1</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 			<version>3.0.0.RELEASE</version>
 		</dependency>
-  	<dependency>
-		<groupId>junit</groupId>
-		<artifactId>junit</artifactId>
-		<version>4.8.1</version>
-		<scope>test</scope>
-	</dependency>
-	<dependency>
-		<groupId>org.mockito</groupId>
-		<artifactId>mockito-all</artifactId>
-		<version>1.9.5</version>
-	</dependency>
-	<dependency>
-		<groupId>org.spockframework</groupId>
-		<artifactId>spock-maven</artifactId>
-		<version>0.7-groovy-2.0</version>
-	</dependency>
-
+	  	<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.spockframework</groupId>
+			<artifactId>spock-maven</artifactId>
+			<version>0.7-groovy-2.0</version>
+		</dependency>
   </dependencies>
 </project>
