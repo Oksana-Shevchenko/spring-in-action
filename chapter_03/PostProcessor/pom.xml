@@ -24,6 +24,6 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
             <version>${spring.version}</version>
-        </dependency>     
+        </dependency>    
   </dependencies> 
 </project>

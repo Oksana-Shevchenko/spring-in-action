@@ -15,4 +15,7 @@
 	<bean id="bugs" class="com.spring.postProcessor.Rabbit">
 		<property name="description" value="That rascally rabbit!" />
 	</bean>
+	
+	<!-- post processor container -->
+	<bean id="beanCounter" class="com.spring.postProcessorContainer.BeanCounter"/>
 </beans>
