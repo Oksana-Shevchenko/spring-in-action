@@ -1,0 +1,37 @@
+chapter1: 
+	Knight 
+		- Injecting dependencies
+		- Applying aspects
+		
+chapter2:
+	SpringIdol
+		- Declaring beans
+		- Injecting object references with constructors
+		- Creating beans through factory method
+		- Bean scoping
+		- Initializing and destroying beans
+		- Injecting into bean properties
+		- Injecting inner beans into bean properties
+		- p namespace
+		- Collections
+		- SpEl expression
+
+chapter3:
+	SpringIdol2
+		- Abstract component
+		- Overriding properties
+		- General abstract properties
+		- Replace method (MethodReplacer)
+		- Replace method (Lookup method)
+		- Inject non spring component
+		
+	CustomPropertyEditor
+		- Custom property editor (СustomEditorConfigurer)
+		
+	PostProcessor
+		- Post-processor components (BeanPostProcessor)
+		- Post-processing of the container (BeanFactoryPostProcessor)
+	Scenario
+		- Components managed by scripts (Ruby, BeanShell)
+		- Updating the components managed by scenarios
+		- Creating components managed by scenarios directly in the configuration
