@@ -1,0 +1,42 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:lang="http://www.springframework.org/schema/lang"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+						http://www.springframework.org/schema/lang
+						http://www.springframework.org/schema/lang/spring-lang-2.0.xsd">
+
+	<lang:jruby id="limeRuby"
+		script-source="classpath:com/spring/script/Lime.rb"
+		script-interfaces="com.spring.Lime" 
+		refresh-check-delay="5000"/> 
+	<bean id="coconutRuby" class="com.spring.Coconut">
+		<property name="lime" ref="limeRuby" />
+	</bean>
+	
+	<lang:bsh id="limeBsh" script-source="classpath:com/spring/script/Lime.bsh"
+		script-interfaces="com.spring.Lime" />		
+	<bean id="coconutBsh" class="com.spring.Coconut">
+		<property name="lime" ref="limeBsh" />
+	</bean>
+	
+	<!-- <lang:groovy id="limeGroove" 
+		script-source="classpath:com/spring/script/Lime.groovy" />
+	<bean id="coconutGroovy" class="com.spring.Coconut">
+		<property name="lime" ref="limeGroove" />
+	</bean> 
+	-->
+
+	<lang:bsh id="limeInternal" script-interfaces="com.spring.Lime">
+		<lang:inline-script>
+			<![CDATA[
+				void drink() {
+					System.out.println("Called the doctor woke him up!");
+				}
+			]]>
+		</lang:inline-script>
+	</lang:bsh>
+	<bean id="coconutBshInternal" class="com.spring.Coconut">
+		<property name="lime" ref="limeInternal" />
+	</bean>
+</beans>
