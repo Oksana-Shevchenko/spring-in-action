@@ -35,3 +35,15 @@ chapter3:
 		- Components managed by scripts (Ruby, BeanShell)
 		- Updating the components managed by scenarios
 		- Creating components managed by scenarios directly in the configuration
+		
+chapter4:
+	SpringIdol3
+		- Autowiring by name
+		- Autowiring by type
+		- Autowiring constructors
+		- Default autowiring
+		- Using @Autowired
+		- Using @Qualifier
+		- Creating custom qualifier
+		- Using @Inject
+		- Automatically discovered bean (context:component-scan)
