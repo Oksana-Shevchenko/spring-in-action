@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+    default-autowire="constructor">
+
+	<context:annotation-config/>
+	<!--  Autowiring by name (instrument) -->
+	<bean id="instrument" class="com.spring.instrument.impl.Saxophone" primary="true"/>
+	<bean id="kennyAutowiringByName" class="com.spring.performer.impl.Instrumentalist" autowire="byName">
+		<property name="song" value="Jingle Bells"></property>
+	</bean>
+	
+	<!-- Autowiring by type (IInstrument) -->
+	<bean id="saxophone" class="com.spring.instrument.impl.Saxophone" autowire-candidate="false"/>
+	<bean id="kennyAutowiringByType" class="com.spring.performer.impl.Instrumentalist" autowire="byType">
+		<property name="song" value="Jingle Bells"></property>
+	</bean>
+	
+	<!-- Autowiring constructor -->
+	<bean id="sonnet29" class="com.spring.poem.impl.Sonnet29"/>
+	<bean id="dukeAutowiringConstructor" class="com.spring.performer.impl.PoeticJuggler" autowire="constructor"/>
+
+	<!-- Autowiring default -->
+	<bean id="dukeAutowiringDefault" class="com.spring.performer.impl.PoeticJuggler"/>
+	
+	<!-- Autowiring with annotation @Autowired -->
+	<bean id="guitar" class="com.spring.instrument.impl.Guitar" primary="false">
+		<qualifier value="stringed"/>
+	</bean>
+	<bean id="instrumentalistWithAutowiredAnnotation" class="com.spring.performer.impl.InstrumentalistWithAutowiredAnnotation">
+		<property name="song" value="ooooo oooooo"></property>
+	</bean>
+	
+	<!-- Autowiring with annotation @Autowired and custom @Qualifier and @Value -->
+	<bean id="piano" class="com.spring.instrument.impl.Piano" primary="false"/>
+	<bean id="instrumentalistWithAutowiredAndCustQualifierAnnotation" class="com.spring.performer.impl.InstrumentalistWithAutowiredAndCustQualifierAnnotation"/>
+	
+	<!-- Autowiring with annotation @Inject -->
+	<bean id="knife" class="com.spring.knife.Knife" scope="prototype"/>
+	<bean id="knifeJuggler" class="com.spring.performer.impl.KnifeJuggler"/>
+	
+	<!-- Autowiring with annotation @Inject and @Named -->
+	<bean id="instrumentalistWithInjectAndNamedAnnotation" class="com.spring.performer.impl.InstrumentalistWithInjectAndNamedAnnotation">
+		<property name="song" value="Marry Christmas"></property>
+	</bean>
+	
+	<context:component-scan base-package="com.spring.componentScan"/>
+</beans>
