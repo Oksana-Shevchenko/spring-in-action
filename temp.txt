@@ -47,3 +47,13 @@ chapter4:
 		- Creating custom qualifier
 		- Using @Inject
 		- Automatically discovered bean (context:component-scan)
+		
+chapter5:
+	SpringIdol4
+		- Declaring before and after advice
+		- Declaring around advice
+		- Passing parameters to advice
+		- Introducing new functionality with aspects
+		- Annotation aspects
+		- Annotation around advice
+		- Passing arguments to annotated advice
