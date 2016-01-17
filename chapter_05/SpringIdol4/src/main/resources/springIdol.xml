@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	
+	<bean id="audience" class="com.spring.audience.Audience"/>
+	<bean id="audienceAdviceAround" class="com.spring.audience.AudienceAdviceAround"/>
+	<bean id="duke" class="com.spring.performer.impl.Juggler"/>
+	
+	<bean id="magician" class="com.spring.mind.impl.Magician"/>
+	<bean id="volunteer" class="com.spring.mind.impl.Volunteer"/>
+	
+	<!-- Annotation aspects -->
+	<bean id="audienceWithAnnotation" class="com.spring.audience.AudienceWithAnnotation"/>
+	<bean id="audienceAdviceAroundWithAnnotation" class="com.spring.audience.AudienceAdviceAroundWithAnnotation"/>
+	<bean id="magicianWithAnnotation" class="com.spring.mind.impl.MagicianWithAnnotation"/>
+	
+	<!-- Annotation aspects -->
+	<aop:aspectj-autoproxy/>
+	
+	<!-- Declaring before and after advice -->
+	<aop:config>
+		<aop:aspect ref="audience">
+			<!-- Introducing new functionality with aspects -->
+			<aop:declare-parents types-matching="com.spring.performer.IPerformer+"
+								 implement-interface="com.spring.performer.IContestant"
+								 default-impl="com.spring.performer.impl.GraciousContestant"/>
+		
+			<aop:pointcut expression="execution(* com.spring.performer.IPerformer.perform(..))" id="performance"/>
+			
+			<aop:before method="takeSeat" 
+						pointcut-ref="performance"/>
+			<aop:before method="turnOffCellPhones"
+						pointcut-ref="performance"/>
+						
+			<aop:after-returning method="applaud"
+								 pointcut="execution(* com.spring.performer.IPerformer.perform(..))"/>
+			<aop:after-throwing method="demandRefund"
+								pointcut="execution(* com.spring.performer.IPerformer.perform(..))"/>
+		</aop:aspect>
+	</aop:config>
+	
+	<!-- Declaring around advice -->
+	<aop:config>
+		<aop:aspect ref="audienceAdviceAround">
+			<aop:pointcut expression="execution(* com.spring.performer.IPerformer.perform(..))" id="performance2"/>
+			<aop:around method="watchPerformance"
+						pointcut-ref="performance2"/>
+		</aop:aspect>
+	</aop:config>
+	
+	<!-- Passing parameters to advice -->
+	<aop:config>
+		<aop:aspect ref="magician">
+			<aop:pointcut expression="execution(* com.spring.mind.IThinker.thinkOfSomething(String)) and args(thoughts)" id="thinking"/>
+			<aop:before	pointcut-ref="thinking"
+						method="interceptThoughts"
+						arg-names="thoughts"/>
+		</aop:aspect>
+	</aop:config>
+</beans>
