@@ -1,7 +1,7 @@
 package com.spring.dao.impl;
-
+/*
 import org.hibernate.SessionFactory;
-import org.hibernate.Session;
+import org.hibernate.Session;*/
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -10,7 +10,22 @@ import com.spring.model.Spitter;
 
 @Repository
 public class HibernateSpitterDao implements ISpitterHibernateDao {
-	private SessionFactory sessionFactory;
+
+	public void addSpitter(Spitter spitter) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void saveSpitter(Spitter spitter) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Spitter getSpitterById(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+/*	private SessionFactory sessionFactory;
 	
 	@Autowired
 	public HibernateSpitterDao(SessionFactory sessionFactory) {
@@ -31,5 +46,5 @@ public class HibernateSpitterDao implements ISpitterHibernateDao {
 	
 	public void saveSpitter(Spitter spitter) {
 		currentSession().update(spitter);
-	}
+	}*/
 }

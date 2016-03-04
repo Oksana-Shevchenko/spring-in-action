@@ -9,9 +9,11 @@
   <properties>
 	 <jdk.version>1.6</jdk.version>
 	 <spring.version>3.2.3.RELEASE</spring.version>
+	 <mockit.jmockit-version>0.996</mockit.jmockit-version>
   </properties>
   
   <dependencies>
+  	<!-- Spring core -->
 	<dependency>
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-core</artifactId>
@@ -27,18 +29,83 @@
     	<artifactId>spring-beans</artifactId>
   		<version>${spring.version}</version>
 	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-test</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
 	
+	<!-- test -->
+	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>4.6</version>
+		<scope>test</scope>
+	</dependency>
+	
+	<!-- database -->
+	<dependency>
+		<groupId>com.h2database</groupId>
+		<artifactId>h2</artifactId>
+		<version>1.3.167</version>
+	</dependency>
+	
+	<!-- JDBC -->
 	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-jdbc</artifactId>
 		<version>${spring.version}</version>
 	</dependency>
-	
 	<dependency>
+		<groupId>commons-dbcp</groupId>
+		<artifactId>commons-dbcp</artifactId>
+		<version>1.2.2</version>
+	</dependency>
+	
+	<!-- hibernate -->
+  	<dependency>
 		<groupId>org.hibernate</groupId>
 		<artifactId>hibernate-core</artifactId>
 		<version>3.6.4.Final</version>
 	</dependency>
+	
   </dependencies>
+ 
+  <build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+					<compilerArgument>-Xlint:all</compilerArgument>
+					<showWarnings>true</showWarnings>
+					<showDeprecation>true</showDeprecation>
+				</configuration>
+			</plugin>
+			<!-- <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<forkMode>once</forkMode>
+					<argLine>-javaagent:"${settings.localRepository}/mockit/jmockit/${mockit.jmockit-version}/jmockit-${mockit.jmockit-version}.jar"</argLine>
+					<useSystemClassloader>true</useSystemClassloader>
+				</configuration>
+			</plugin> -->
+		</plugins>
+	</build>
+	 <!-- <repositories>
+		<repository>
+			<id>Spring Milestone</id>
+			<url>http://maven.springframework.org/milestone</url>
+		</repository>
+		<repository>
+			<id>EclipseLink</id>
+			<url>http://download.eclipse.org/rt/eclipselink/maven.repo</url>
+		</repository>
+	</repositories> -->
   
 </project>
