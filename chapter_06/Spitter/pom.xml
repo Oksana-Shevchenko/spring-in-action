@@ -61,14 +61,6 @@
 		<artifactId>commons-dbcp</artifactId>
 		<version>1.2.2</version>
 	</dependency>
-	
-	<!-- hibernate -->
-  	<dependency>
-		<groupId>org.hibernate</groupId>
-		<artifactId>hibernate-core</artifactId>
-		<version>3.6.4.Final</version>
-	</dependency>
-	
   </dependencies>
  
   <build>
@@ -85,27 +77,6 @@
 					<showDeprecation>true</showDeprecation>
 				</configuration>
 			</plugin>
-			<!-- <plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.4</version>
-				<configuration>
-					<forkMode>once</forkMode>
-					<argLine>-javaagent:"${settings.localRepository}/mockit/jmockit/${mockit.jmockit-version}/jmockit-${mockit.jmockit-version}.jar"</argLine>
-					<useSystemClassloader>true</useSystemClassloader>
-				</configuration>
-			</plugin> -->
 		</plugins>
-	</build>
-	 <!-- <repositories>
-		<repository>
-			<id>Spring Milestone</id>
-			<url>http://maven.springframework.org/milestone</url>
-		</repository>
-		<repository>
-			<id>EclipseLink</id>
-			<url>http://download.eclipse.org/rt/eclipselink/maven.repo</url>
-		</repository>
-	</repositories> -->
-  
+	</build>  
 </project>
