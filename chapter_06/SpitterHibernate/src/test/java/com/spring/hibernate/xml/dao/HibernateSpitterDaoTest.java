@@ -17,7 +17,7 @@ public class HibernateSpitterDaoTest {
 	@Autowired
 	ISpitterDao spitterDao;
 	
-	public void setPlayerDao(ISpitterDao spitterDao) {
+	public void setSpitterDao(ISpitterDao spitterDao) {
         this.spitterDao = spitterDao;
     }
 	
