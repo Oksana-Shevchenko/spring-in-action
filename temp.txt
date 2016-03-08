@@ -1,9 +1,9 @@
-chapter1: 
+chapter1 - Springing into action: 
 	Knight 
 		- Injecting dependencies
 		- Applying aspects
 		
-chapter2:
+chapter2 - Wiring beans:
 	SpringIdol
 		- Declaring beans
 		- Injecting object references with constructors
@@ -16,7 +16,7 @@ chapter2:
 		- Collections
 		- SpEl expression
 
-chapter3:
+chapter3 - Additional ways of wiring beans:
 	SpringIdol2
 		- Abstract component
 		- Overriding properties
@@ -36,7 +36,7 @@ chapter3:
 		- Updating the components managed by scenarios
 		- Creating components managed by scenarios directly in the configuration
 		
-chapter4:
+chapter4 - Minimizing XML configuration in Spring:
 	SpringIdol3
 		- Autowiring by name
 		- Autowiring by type
@@ -48,7 +48,7 @@ chapter4:
 		- Using @Inject
 		- Automatically discovered bean (context:component-scan)
 		
-chapter5:
+chapter5 - Aspect-oriented Spring:
 	SpringIdol4
 		- Declaring before and after advice
 		- Declaring around advice
@@ -57,3 +57,23 @@ chapter5:
 		- Annotation aspects
 		- Annotation around advice
 		- Passing arguments to annotated advice
+
+chapter6 - Hitting the database: 
+	Spitter
+		- Configuring a data source (JNDI, pooled data source, JDBC drived based data source)
+		- Using JDBC with Spring
+		
+	SpitterHibernate
+		- Integrating Hibernate with Spring
+		- Declaring a Hibernate session factory
+		
+	SpitterJPA
+		- Java persistence API
+		- Configuration an entity manager factory
+		- Configuration container managed JPA
+		- Writting a JPA based DAO
+		
+	RoadRantz
+		- Caching
+		- Setting EHCache
+		- Flushing cache
