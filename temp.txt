@@ -85,7 +85,7 @@ chapter7 - Managing transactions
 		- Declaring transactions
 		(Propogation behavior, isolation level, read only, transaction timeout, rollback rules)
 		
-chapter8 - Securing Spring
+chapter8 - Building web applications with Spring MVC
 	SpitterMVC
 		- Setting up Spring MVC
 		- Writing a basic controller
