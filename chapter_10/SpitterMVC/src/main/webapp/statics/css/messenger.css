@@ -1,0 +1,105 @@
+body {
+	background: url(../images/background.png);
+	color: #333333;
+	font-family: 'Lucida Grande',sans-serif;
+	font-size: 0.75em;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: 1.5;
+	text-align: center;
+}
+
+ol.message-list {
+	font-size: 1.0em;
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+	background-color: #FFFFFF;
+	opacity: 0.95;
+}
+ol.message-list li:first-child {
+	border-top: 1px solid #EEEEEE;
+}
+ol.message-list li {
+	font-size: 1.2em;
+	border-bottom: 1px solid #EEEEEE;
+	line-height: 1.1em;
+	padding: 0.7em 0 0.6em;
+	position: relative;
+}
+
+.messageListText {
+	display: block;
+	width: 500px;
+	margin-left: 56px;
+	min-height: 50px;
+}
+
+th label {
+	font-size:0.75em;
+	font-weight: normal;
+}
+
+td label {
+	font-size:0.75em;
+	font-weight: normal;
+}
+
+fieldset {
+	margin: 10px 0pt;
+}
+fieldset input[type="text"], input[type="password"] {
+	border: 1px solid #AAAAAA;
+	margin-right: 3px;
+	padding: 4px 2px;
+	width: 12em;
+}
+
+fieldset small {
+	color: #777777;
+	font-size: 0.7em;
+}
+
+fieldset th {
+	font-weight: normal;
+	padding-top: 10px;
+	text-align: right;
+	width: 8em;
+}
+
+fieldset th, td {
+	padding: 7px 3px;
+	vertical-align: top;
+}
+
+a img, form, fieldset {
+	border:0pt none;
+}
+
+h2 {
+	font-weight: normal;
+	line-height: 1.2em;
+}
+*{
+	padding: 0px;
+}
+label {
+	font-size: 20px;
+}
+
+#user {
+	background-color: #FFFFFF;
+	opacity: 0.95;
+}
+
+#view_profile {
+	background-color: #FFFFFF;
+	opacity: 0.95;
+}
+span.error {
+	color:red;
+	font-size:8pt;
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:security="http://www.springframework.org/schema/security"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+<!--<security:jdbc-user-service id="userService"-->
+                            <!--data-source-ref="dataSource"-->
+                            <!--users-by-username-query="select username, password from user where username=?"-->
+                            <!--authorities-by-username-query="select username, 'ROLE_USER' from user where username=?"/>-->
+</beans>
