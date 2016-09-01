@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+      xsi:schemaLocation="
+        http://www.springframework.org/schema/webflow
+        http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+      start-state="welcome">
+
+    <var name="customer" class="com.spring.webFlow.pizza.Customer"/>
+
+    <view-state id="welcome" view="/WEB-INF/views/pizza/customer/welcome.jsp">
+        <transition on="phoneEntered" to="lookupCustomer"/>
+    </view-state>
+
+    <action-state id="lookupCustomer">
+        <evaluate result="customer" expression="customerService.lookupCustomer(requestParameters.phoneNumber)"/>
+        <transition to="registrationForm" on-exception="com.spring.webFlow.pizza.CustomerNotFoundException"/>
+        <transition to="customerReady"/>
+    </action-state>
+
+    <view-state id="registrationForm" model="customer" view="/WEB-INF/views/pizza/customer/registrationForm.jsp">
+        <on-entry>
+            <evaluate expression="customer.phoneNumber=requestParameters.phoneNumber"/>
+        </on-entry>
+        <transition on="submit" to="checkDeliveryArea"/>
+        <transition on="cancel" to="cancel"/>
+
+    </view-state>
+
+    <decision-state id="checkDeliveryArea">
+        <if test="customerService.checkDeliveryArea(customer.zipCode)"
+            then="addCustomer"
+            else="deliveryWarning"/>
+    </decision-state>
+
+    <view-state id="deliveryWarning" view="/WEB-INF/views/pizza/customer/deliveryWarning.jsp">
+        <transition on="accept" to="addCustomer"/>
+        <transition on="cancel" to="cancel"/>
+
+    </view-state>
+
+    <action-state id="addCustomer">
+        <evaluate expression="customerService.addCustomer(customer)"/>
+        <transition to="customerReady"/>
+    </action-state>
+
+    <end-state id="cancel"/>
+
+    <end-state id="customerReady">
+        <output name="customer"/>
+    </end-state>
+
+    <global-transitions>
+        <transition on="cancel" to="cancel"/>
+    </global-transitions>
+</flow>
