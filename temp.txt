@@ -95,3 +95,33 @@ chapter8 - Building web applications with Spring MVC
 		- Validating input
 		- Displaying validation errors
 		- Handling file uploads
+		
+chapter9 - Working with Spring Web Flow
+	SpringWebFlow
+		- test example
+	Pizza
+		- configuring Web Flow in Spring
+		- configuring Flow Executor
+		- configuring Flow Registry
+		- handling flow requests
+		- defining the base flow
+		- collecting customer information
+		- building an order
+		- taking payment
+		
+chapter10 - Securing Spring
+	SpitterMVC
+		- using the Spring Security configuration namespace
+		- securing web requests
+		- configuring minimal web security
+		- logging in via a form
+		- handling basic authentication
+		- logging out
+		- intercepting requests
+		- securing with spring expressions
+		- accessing authentication details
+		- rendering with authorities
+		- authenticating users
+		- authenticating against a database
+		- securing methods
+	
